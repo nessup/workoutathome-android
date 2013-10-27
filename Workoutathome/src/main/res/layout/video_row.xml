@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="20dp"
+        android:background="@color/fragment_background"
+        >
+
+    <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:background="@drawable/card_background"
+            android:orientation="vertical"
+            >
+
+        <ImageView
+                android:id="@+id/imageView"
+                android:layout_height="200dp"
+                android:layout_width="match_parent"
+                android:src="@drawable/test_image"
+                android:scaleType="centerCrop"
+                />
+
+        <RelativeLayout
+                android:layout_height="match_parent"
+                android:layout_width="wrap_content"
+                android:layout_margin="10dp"
+                >
+
+            <TextView
+                    android:id="@+id/title"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="This is a test"
+                    android:layout_centerVertical="true"
+                    />
+
+            <ImageView
+                    android:id="@+id/playButton"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/play_icon"
+                    />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+
+</FrameLayout>
