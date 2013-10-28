@@ -36,14 +36,16 @@
                     android:layout_width="wrap_content"
                     android:text="This is a test"
                     android:layout_centerVertical="true"
+                    android:textSize="20sp"
                     />
 
-            <ImageView
+            <ImageButton
                     android:id="@+id/playButton"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
                     android:layout_alignParentRight="true"
                     android:src="@drawable/play_icon"
+                    android:background="@null"
                     />
 
         </RelativeLayout>

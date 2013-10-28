@@ -32,6 +32,14 @@ public class MainFragment extends Fragment {
         return view;
     }
 
+    private void didSelectRowAtIndexPath(int index, View row) {
+        getFragmentManager()
+                .beginTransaction()
+                .replace(R.id.container, VideoInfoFragment.newInstance(Video.buildTestVideo()))
+                .addToBackStack(null)
+                .commit();
+    }
+
     private class VideoListAdapter extends BaseAdapter {
         LayoutInflater inflater;
 
@@ -55,9 +63,15 @@ public class MainFragment extends Fragment {
         }
 
         @Override
-        public View getView(int i, View view, ViewGroup parentViewGroup) {
+        public View getView(final int i, View view, ViewGroup parentViewGroup) {
             if (view == null) {
                 view = inflater.inflate(R.layout.video_row, parentViewGroup, false);
+                view.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        MainFragment.this.didSelectRowAtIndexPath(i, view);
+                    }
+                });
             }
 
             TextView titleView = (TextView) view.findViewById(R.id.title);

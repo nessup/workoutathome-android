@@ -18,6 +18,8 @@ public class MainActivity extends FragmentActivity {
 
     private ViewGroup navigationItemContainer = null;
     private int currentFragmentIndex = 0;
+    private Fragment[] fragments = null;
+    private Fragment lastClickedFragment = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,13 +27,19 @@ public class MainActivity extends FragmentActivity {
         setContentView(R.layout.main_activity);
 
         setupNavigationItems();
+        setupFragments();
 
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
-                    .add(R.id.container, new MainFragment())
+                    .add(R.id.container, fragments[MAIN_FRAGMENT])
                     .commit();
             getNavigationItemAtIndex(0).setSelected(true);
         }
+    }
+
+    private void setupFragments() {
+        Fragment[] newFragments = {new MainFragment(), new DiscoverFragment(), new FavoritesFragment()};
+        fragments = newFragments;
     }
 
     private ViewGroup getNavigationItemAtIndex(int index) {
@@ -41,7 +49,7 @@ public class MainActivity extends FragmentActivity {
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        // TODO: save currentFragmentIndex and navigationItemContainer
+        // TODO: save currentFragmentIndex, navigationItemContainer, and fragment ivars
     }
 
     private void setupNavigationItems() {
@@ -70,26 +78,20 @@ public class MainActivity extends FragmentActivity {
 
     private void navigationItemClicked(View view) {
         int index = (Integer) view.getTag();
-        Fragment fragment = null;
-        switch (index) {
-            case MAIN_FRAGMENT:
-                fragment = new MainFragment();
-                break;
+        Fragment fragment = fragments[index];
 
-            case DISCOVER_FRAGMENT:
-                fragment = new DiscoverFragment();
-                break;
-
-            case FAVORITES_FRAGMENT:
-                fragment = new FavoritesFragment();
-                break;
+        if (lastClickedFragment == fragment) {
+            onBackPressed();
+            lastClickedFragment = null;
         }
-
-        getSupportFragmentManager()
-                .beginTransaction()
-                .replace(R.id.container, fragment)
-                .addToBackStack(null)
-                .commit();
+        else {
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.container, fragment)
+                    .addToBackStack(null)
+                    .commit();
+            lastClickedFragment = fragments[currentFragmentIndex];
+        }
 
         getNavigationItemAtIndex(currentFragmentIndex).setSelected(false);
         currentFragmentIndex = index;
