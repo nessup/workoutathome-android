@@ -37,6 +37,7 @@
                     android:text="This is a test"
                     android:layout_centerVertical="true"
                     android:textSize="20sp"
+                    android:textColor="@color/title_color"
                     />
 
             <ImageButton
@@ -50,8 +51,105 @@
 
         </RelativeLayout>
 
+        <LinearLayout
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:background="@drawable/card_background"
+                android:orientation="horizontal"
+                >
+
+            <RelativeLayout
+                    android:layout_height="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:padding="10dp"
+                    android:gravity="center_horizontal"
+                    >
+
+                <ImageView
+                        android:id="@+id/durationIcon"
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:src="@drawable/clock_green"
+                        android:layout_centerVertical="true"
+                        />
+
+                <TextView
+                        android:id="@+id/durationInfo"
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:layout_toRightOf="@id/durationIcon"
+                        android:textSize="16dp"
+                        android:text="5 minutes"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10dp"
+                        android:textColor="@color/subtitle_color"
+                        />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                    android:layout_height="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:padding="10dp"
+                    android:gravity="center_horizontal"
+                    >
+
+                <ImageView
+                        android:id="@+id/intensityIcon"
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:src="@drawable/clock_green"
+                        android:layout_centerVertical="true"
+                        />
+
+                <TextView
+                        android:id="@+id/intensityInfo"
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:layout_toRightOf="@id/intensityIcon"
+                        android:textSize="16dp"
+                        android:text="Difficult"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10dp"
+                        android:textColor="@color/subtitle_color"
+                        />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                    android:layout_height="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:padding="10dp"
+                    android:gravity="center_horizontal"
+                    >
+
+                <ImageView
+                        android:id="@+id/favoritesIcon"
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:src="@drawable/heart_grey"
+                        android:layout_centerVertical="true"
+                        />
+
+                <TextView
+                        android:id="@+id/favoritesInfo"
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:layout_toRightOf="@id/favoritesIcon"
+                        android:textSize="16dp"
+                        android:text="4.2k"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10dp"
+                        android:textColor="@color/subtitle_color"
+                        />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
     </LinearLayout>
-
-
 
 </FrameLayout>

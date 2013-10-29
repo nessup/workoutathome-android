@@ -7,8 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
 
+import com.joumaa.workouthome.model.VideoRow;
 import com.joumaa.workouthome.temporary.Video;
 
 /**
@@ -64,8 +64,12 @@ public class MainFragment extends Fragment {
 
         @Override
         public View getView(final int i, View view, ViewGroup parentViewGroup) {
+            VideoRow videoRow;
             if (view == null) {
                 view = inflater.inflate(R.layout.video_row, parentViewGroup, false);
+                videoRow = VideoRow.newInstance(view);
+                view.setTag(videoRow);
+
                 view.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -73,9 +77,11 @@ public class MainFragment extends Fragment {
                     }
                 });
             }
+            else {
+                videoRow = (VideoRow) view.getTag();
+            }
 
-            TextView titleView = (TextView) view.findViewById(R.id.title);
-            titleView.setText(getItem(i).getTitle());
+            videoRow.configureWithVideo(getItem(i));
 
             return view;
         }
