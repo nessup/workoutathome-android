@@ -3,6 +3,7 @@ package com.joumaa.workouthome;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -11,6 +12,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.joumaa.workouthome.temporary.DiscoverPage;
+import com.parse.LogInCallback;
+import com.parse.ParseAnonymousUtils;
+import com.parse.ParseException;
+import com.parse.ParseUser;
 
 public class MainActivity extends FragmentActivity {
 
@@ -28,6 +33,7 @@ public class MainActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity);
 
+        logInIfNeeded();
         setupNavigationItems();
         setupFragments();
 
@@ -36,6 +42,17 @@ public class MainActivity extends FragmentActivity {
                     .add(R.id.container, fragments[MAIN_FRAGMENT])
                     .commit();
             getNavigationItemAtIndex(0).setSelected(true);
+        }
+    }
+
+    private void logInIfNeeded() {
+        if (ParseUser.getCurrentUser() == null) {
+            ParseAnonymousUtils.logIn(new LogInCallback() {
+                @Override
+                public void done(ParseUser parseUser, ParseException e) {
+                    Log.v("lol", "lol");
+                }
+            });
         }
     }
 
