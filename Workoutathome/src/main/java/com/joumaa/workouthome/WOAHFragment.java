@@ -20,18 +20,22 @@ public abstract class WOAHFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = createView(inflater, container, savedInstanceState);
-
-        this.titleView = (TextView) view.findViewById(R.id.navigationTitleView);
-
-        this.backButton = (ImageView) view.findViewById(R.id.navigationBackButton);
-        this.backButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                WOAHFragment.this.onBackPressed();
-            }
-        });
-
+        findViews(view);
         return view;
+    }
+
+    public void findViews(View view) {
+        if (view.findViewById(R.id.fragmentNavigationBar) != null) {
+            this.titleView = (TextView) view.findViewById(R.id.navigationTitleView);
+
+            this.backButton = (ImageView) view.findViewById(R.id.navigationBackButton);
+            this.backButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    WOAHFragment.this.onBackPressed();
+                }
+            });
+        }
     }
 
     public TextView getTitleView() {

@@ -43,13 +43,14 @@ public class VideoInfoFragment extends WOAHFragment {
         layoutInflater = inflater;
 
         View view = super.onCreateView(inflater, container, savedInstanceState);
-        findViews(view);
         configureUI();
 
         return view;
     }
 
-    private void findViews(View view) {
+    @Override
+    public void findViews(View view) {
+        super.findViews(view);
         videoRow = VideoRow.newInstance(view);
         playButton = (ViewGroup) view.findViewById(R.id.playContainer);
         myFavoritesButton = (ViewGroup) view.findViewById(R.id.myFavoriteContainer);
