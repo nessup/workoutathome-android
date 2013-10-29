@@ -1,33 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout
+<ScrollView
         xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/columnsContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal"
-        android:gravity="center_horizontal"
         android:background="@color/fragment_background"
         >
 
     <LinearLayout
-            android:id="@+id/column1"
             android:layout_height="wrap_content"
-            android:layout_width="320dp"
-            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center_horizontal"
+            android:id="@+id/columnsContainer"
             >
+
+        <LinearLayout
+                android:id="@+id/column1"
+                android:layout_height="wrap_content"
+                android:layout_width="320dp"
+                android:orientation="vertical"
+                >
+
+        </LinearLayout>
+
+        <LinearLayout
+                android:id="@+id/column2"
+                android:layout_height="wrap_content"
+                android:layout_width="320dp"
+                android:layout_marginLeft="20dp"
+                android:orientation="vertical"
+                android:layout_toRightOf="@id/column1"
+                >
+
+        </LinearLayout>
 
     </LinearLayout>
 
-    <LinearLayout
-            android:id="@+id/column2"
-            android:layout_height="wrap_content"
-            android:layout_width="320dp"
-            android:layout_marginLeft="20dp"
-            android:orientation="vertical"
-            android:layout_toRightOf="@id/column1"
-            >
-
-    </LinearLayout>
-
-</LinearLayout>
+</ScrollView>

@@ -45,9 +45,10 @@ public class DiscoverFragment extends Fragment {
     private void findViews(View view) {
         this.view = (ViewGroup) view;
 
+        ViewGroup columnsContainer = (ViewGroup) this.view.findViewById(R.id.columnsContainer);
         columns = new ArrayList<ViewGroup>();
-        for (int i = 0; i < this.view.getChildCount(); i++) {
-            columns.add((ViewGroup) this.view.getChildAt(i));
+        for (int i = 0; i < columnsContainer.getChildCount(); i++) {
+            columns.add((ViewGroup) columnsContainer.getChildAt(i));
         }
     }
 
