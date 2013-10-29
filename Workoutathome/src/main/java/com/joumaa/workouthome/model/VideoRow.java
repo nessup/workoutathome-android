@@ -19,7 +19,9 @@ public class VideoRow {
     public boolean playButtonVisible;
     public float titleFontSize;
     public float subtitleFontSize;
+    public int thumbnailHeight;
 
+    public ImageView thumbnailView;
     public TextView titleView;
     public ImageButton playButton;
     public ImageView durationIcon;
@@ -36,6 +38,7 @@ public class VideoRow {
     }
 
     private void findViews(View parentView) {
+        thumbnailView = (ImageView) parentView.findViewById(R.id.imageView);
         titleView = (TextView) parentView.findViewById(R.id.title);
         playButton = (ImageButton) parentView.findViewById(R.id.playButton);
         durationIcon = (ImageView) parentView.findViewById(R.id.durationIcon);
@@ -47,6 +50,11 @@ public class VideoRow {
     }
 
     public void configureWithVideo(Video video) {
+        // Video thumbnail
+        if (thumbnailHeight > 0) {
+            thumbnailView.getLayoutParams().height = thumbnailHeight;
+        }
+
         // Title
         titleView.setText(video.getTitle());
         if (titleFontSize > 0) {

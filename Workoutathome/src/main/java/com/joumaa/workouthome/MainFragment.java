@@ -77,6 +77,7 @@ public class MainFragment extends Fragment {
                 view = inflater.inflate(R.layout.video_row, parentViewGroup, false);
                 videoRow = VideoRow.newInstance(view);
                 videoRow.playButtonVisible = true;
+                videoRow.thumbnailHeight = getResources().getDimensionPixelSize(R.dimen.featured_thumbnail_height);
                 view.setTag(videoRow);
 
                 view.setOnClickListener(new View.OnClickListener() {
