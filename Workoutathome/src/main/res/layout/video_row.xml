@@ -18,7 +18,7 @@
 
         <ImageView
                 android:id="@+id/imageView"
-                android:layout_height="200dp"
+                android:layout_height="100dp"
                 android:layout_width="match_parent"
                 android:src="@drawable/test_image"
                 android:scaleType="centerCrop"
@@ -47,6 +47,7 @@
                     android:layout_alignParentRight="true"
                     android:src="@drawable/play_icon"
                     android:background="@null"
+                    android:visibility="gone"
                     />
 
         </RelativeLayout>

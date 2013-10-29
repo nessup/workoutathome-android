@@ -10,6 +10,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.joumaa.workouthome.temporary.DiscoverPage;
+
 public class MainActivity extends FragmentActivity {
 
     public static final int MAIN_FRAGMENT = 0;
@@ -38,7 +40,11 @@ public class MainActivity extends FragmentActivity {
     }
 
     private void setupFragments() {
-        Fragment[] newFragments = {new MainFragment(), new DiscoverFragment(), new FavoritesFragment()};
+        Fragment[] newFragments = {
+                new MainFragment(),
+                DiscoverFragment.newInstance(DiscoverPage.buildTestDiscoverPage()),
+                new FavoritesFragment()
+        };
         fragments = newFragments;
     }
 

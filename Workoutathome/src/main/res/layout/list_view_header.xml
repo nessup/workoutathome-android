@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<FrameLayout
+<RelativeLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -9,12 +9,40 @@
         >
 
     <TextView
+            android:id="@+id/headerTitle"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            android:textColor="#808080"
-            android:layout_gravity="center_vertical"
-            android:text="Featured Workouts"
+            android:textColor="@color/list_view_header"
+            android:text="Featured Workouts blah blah"
             android:textSize="24sp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_toLeftOf="@+id/seeAllIcon"
+            android:lines="1"
+            android:ellipsize="end"
             />
 
-</FrameLayout>
+    <TextView
+            android:id="@+id/seeAllText"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="See all"
+            android:textColor="@color/list_view_header"
+            android:layout_alignParentRight="true"
+            android:textSize="16sp"
+            android:layout_alignBaseline="@id/headerTitle"
+            android:visibility="gone"
+            />
+
+    <ImageView
+            android:id="@id/seeAllIcon"
+            android:layout_height="22dp"
+            android:layout_width="22dp"
+            android:layout_toLeftOf="@id/seeAllText"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/arrow_right"
+            android:layout_centerVertical="true"
+            android:visibility="gone"
+            />
+
+</RelativeLayout>

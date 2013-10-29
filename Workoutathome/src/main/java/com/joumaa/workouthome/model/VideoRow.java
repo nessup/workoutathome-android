@@ -16,6 +16,10 @@ public class VideoRow {
     public static final int WORKOUT_DIFFICULTY_MEDIUM = 2;
     public static final int WORKOUT_DIFFICULTY_HARD = 3;
 
+    public boolean playButtonVisible;
+    public float titleFontSize;
+    public float subtitleFontSize;
+
     public TextView titleView;
     public ImageButton playButton;
     public ImageView durationIcon;
@@ -45,6 +49,9 @@ public class VideoRow {
     public void configureWithVideo(Video video) {
         // Title
         titleView.setText(video.getTitle());
+        if (titleFontSize > 0) {
+            titleView.setTextSize(titleFontSize);
+        }
 
         // Play button
         playButton.setOnClickListener(new View.OnClickListener() {
@@ -53,8 +60,9 @@ public class VideoRow {
                 // todo: play a video
             }
         });
+        playButton.setVisibility(playButtonVisible ? View.VISIBLE : View.GONE);
 
-        // Video duration icon
+        // Video duration
         int durationResourceId;
         if (video.getDuration() > 60 * 15) {
             durationResourceId = R.drawable.clock_red;
@@ -88,5 +96,12 @@ public class VideoRow {
         // Number of favorites
         // todo: make heart red if this user liked it
         favoritesInfo.setText(video.getFavorites());
+
+        // Subtitle font sizes
+        if (subtitleFontSize > 0) {
+            durationInfo.setTextSize(subtitleFontSize);
+            difficultyInfo.setTextSize(subtitleFontSize);
+            favoritesInfo.setTextSize(subtitleFontSize);
+        }
     }
 }

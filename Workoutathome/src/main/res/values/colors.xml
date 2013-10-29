@@ -6,4 +6,5 @@
     <color name="separator_color">#ccc</color>
     <color name="alt_row_background">#fff8f8f8</color>
     <color name="row_background">#fff</color>
+    <color name="list_view_header">#808080</color>
 </resources>
