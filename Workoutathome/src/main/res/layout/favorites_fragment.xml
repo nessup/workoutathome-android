@@ -27,7 +27,8 @@
                 android:layout_margin="10dp"
                 android:layout_gravity="center_horizontal"
                 android:textSize="36sp"
-                android:text="No Favorites"/>
+                android:text="No Favorites"
+                />
 
         <TextView
                 android:layout_height="wrap_content"
@@ -35,7 +36,8 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_margin="10dp"
                 android:textSize="20sp"
-                android:text="Add videos you like to your favorites."/>
+                android:text="Add videos you like to your favorites."
+                />
 
         <LinearLayout
                 android:layout_height="wrap_content"
